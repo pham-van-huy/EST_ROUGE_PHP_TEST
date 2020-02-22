@@ -1,0 +1,16 @@
+[{
+    "name": "Work 1",
+    "startDate": "2019-04-12",
+    "endDate": "2019-04-17",
+    "status": 1
+}, {
+    "name": "Work 2",
+    "startDate": "2019-04-13",
+    "endDate": "2019-04-18",
+    "status": 2
+}, {
+    "name": "Work 3",
+    "startDate": "2019-04-14",
+    "endDate": "2019-04-19",
+    "status": 3
+}]
