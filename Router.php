@@ -45,7 +45,7 @@ class Router
         }
 
         $arr      = explode('@', $method);
-        $class    = 'App\\Controllers\\' . $arr[0];
+        $class    = ROOT_CONTROLLER . $arr[0];
         $method   = $arr[1];
         $instance = new $class;
 

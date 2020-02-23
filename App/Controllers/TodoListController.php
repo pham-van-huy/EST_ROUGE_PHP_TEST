@@ -14,8 +14,7 @@ class TodoListController extends BaseController
 
     public function index($request)
     {
-        $todoLists = $this->todoList->get();
-        $this->loadView('TodoLists/create.php', $todoLists);
+        $this->loadView('TodoLists/index.php');
     }
 
     public function create($request)
@@ -36,5 +35,18 @@ class TodoListController extends BaseController
     public function update($request)
     {
         debug('update');
+    }
+
+    function list($request) {
+        $start  = $request->get('start');
+        $end    = $request->get('end');
+        $result = [];
+        $result = $this->todoList
+            ->whereBetweenTime('start', $start)
+            ->whereBetweenTime('end', null, $end)
+            ->get();
+
+        header('Content-Type: application/json');
+        echo json_encode(array_values($result));
     }
 }

@@ -1,16 +1,22 @@
 [{
-    "name": "Work 1",
-    "startDate": "2019-04-12",
-    "endDate": "2019-04-17",
-    "status": 1
+    "id": 1,
+    "title": "Work 1",
+    "body": "Defines the columns and rows of the grid with a space-separated list of values.",
+    "start": "2020-02-12T22:30:00+09:00",
+    "end": "2020-02-17T22:30:00+09:00",
+    "status": "Planning"
 }, {
-    "name": "Work 2",
-    "startDate": "2019-04-13",
-    "endDate": "2019-04-18",
-    "status": 2
+    "id": 1,
+    "title": "Work 1",
+    "body": "Defines the columns and rows of the grid with a space-separated list of values.",
+    "start": "2020-01-12T22:30:00+09:00",
+    "end": "2020-01-17T22:30:00+09:00",
+    "status": "Planning"
 }, {
-    "name": "Work 3",
-    "startDate": "2019-04-14",
-    "endDate": "2019-04-19",
-    "status": 3
+    "id": 1,
+    "title": "Work 1",
+    "body": "Defines the columns and rows of the grid with a space-separated list of values.",
+    "start": "2020-01-27T22:30:00+09:00",
+    "end": "2020-02-01T22:30:00+09:00",
+    "status": "Planning"
 }]

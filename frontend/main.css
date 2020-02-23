@@ -1,0 +1,87 @@
+body {
+	 font-family: Arial, Helvetica, sans-serif;
+	 margin: unset;
+	 background-color: #f2f2f2;
+}
+ body #main {
+	 max-width: 980px;
+	 margin: 0 auto;
+	 padding: 0px 10px 5px;
+}
+ body #main #header {
+	 background-color: #007f74;
+	 height: 35px;
+	 line-height: 35px;
+	 padding: 0 5px;
+	 color: white;
+	 font-size: 20px;
+	 font-weight: bold;
+}
+ body #main #content {
+	 background-color: white;
+	 height: calc(100vh - 85px);
+}
+ body #main #content #menu {
+	 width: 100%;
+	 padding: 5px;
+}
+ body #main #content #menu > .form-group {
+	 margin: unset;
+	 width: 100px;
+	 display: inline-block;
+	 margin-right: 20px;
+}
+ body #main #content #menu > .form-group select {
+	 border-radius: 20px;
+}
+ body #main #content #menu #show-today {
+	 border-radius: 20px;
+	 margin-right: 20px;
+}
+ body #main #content #menu #prev-time, body #main #content #menu #next-time {
+	 border-radius: 50%;
+}
+ body #main #content #menu #range-time-show {
+	 margin-left: 10px;
+	 color: #333;
+	 font-size: 20px;
+	 display: inline-block;
+}
+ body #main #footer {
+	 border-top: solid 2px #267f74;
+	 height: 33px;
+	 line-height: 33px;
+	 padding: 0 5px;
+}
+
+.myModal {
+	 display: none;
+	 position: fixed;
+	 z-index: 1;
+	 padding-top: 100px;
+	 left: 0;
+	 top: 0;
+	 width: 100%;
+	 height: 100%;
+	 overflow: auto;
+	 background-color: #000;
+	 background-color: rgba(0, 0, 0, 0.4);
+}
+ .myModal .modal-content {
+	 background-color: #fefefe;
+	 margin: auto;
+	 padding: 20px;
+	 border: 1px solid #888;
+	 width: 80%;
+}
+ .myModal .close {
+	 color: #aaa;
+	 float: right;
+	 font-size: 28px;
+	 font-weight: bold;
+}
+ .myModal .close:hover, .myModal .close:focus {
+	 color: #000;
+	 text-decoration: none;
+	 cursor: pointer;
+}
