@@ -1,87 +1,146 @@
 body {
-	 font-family: Arial, Helvetica, sans-serif;
-	 margin: unset;
-	 background-color: #f2f2f2;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: unset;
+    background-color: #f2f2f2;
 }
- body #main {
-	 max-width: 980px;
-	 margin: 0 auto;
-	 padding: 0px 10px 5px;
+
+body #main {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0px 10px 5px;
 }
- body #main #header {
-	 background-color: #007f74;
-	 height: 35px;
-	 line-height: 35px;
-	 padding: 0 5px;
-	 color: white;
-	 font-size: 20px;
-	 font-weight: bold;
+
+body #main #header {
+    background-color: #007f74;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 5px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
 }
- body #main #content {
-	 background-color: white;
-	 height: calc(100vh - 85px);
+
+body #main #content {
+    background-color: white;
+    height: fit-content;
+    border-bottom: solid 2px #267f74;
 }
- body #main #content #menu {
-	 width: 100%;
-	 padding: 5px;
+
+body #main #content #menu {
+    width: 100%;
+    padding: 5px;
 }
- body #main #content #menu > .form-group {
-	 margin: unset;
-	 width: 100px;
-	 display: inline-block;
-	 margin-right: 20px;
+
+body #main #content #menu>.form-group {
+    margin: unset;
+    width: 100px;
+    display: inline-block;
+    margin-right: 20px;
 }
- body #main #content #menu > .form-group select {
-	 border-radius: 20px;
+
+body #main #content #menu>.form-group select {
+    border-radius: 20px;
 }
- body #main #content #menu #show-today {
-	 border-radius: 20px;
-	 margin-right: 20px;
+
+body #main #content #menu #show-today {
+    border-radius: 20px;
+    margin-right: 20px;
 }
- body #main #content #menu #prev-time, body #main #content #menu #next-time {
-	 border-radius: 50%;
+
+body #main #content #menu #prev-time,
+body #main #content #menu #next-time {
+    border-radius: 50%;
 }
- body #main #content #menu #range-time-show {
-	 margin-left: 10px;
-	 color: #333;
-	 font-size: 20px;
-	 display: inline-block;
+
+body #main #content #menu #range-time-show {
+    margin-left: 10px;
+    color: #333;
+    font-size: 20px;
+    display: inline-block;
 }
- body #main #footer {
-	 border-top: solid 2px #267f74;
-	 height: 33px;
-	 line-height: 33px;
-	 padding: 0 5px;
+
+body #main #content #menu #btnAdd {
+    float: right;
+    background: #267f74;
+    color: white;
+    font-weight: 600;
 }
 
 .myModal {
-	 display: none;
-	 position: fixed;
-	 z-index: 1;
-	 padding-top: 100px;
-	 left: 0;
-	 top: 0;
-	 width: 100%;
-	 height: 100%;
-	 overflow: auto;
-	 background-color: #000;
-	 background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.4);
 }
- .myModal .modal-content {
-	 background-color: #fefefe;
-	 margin: auto;
-	 padding: 20px;
-	 border: 1px solid #888;
-	 width: 80%;
+
+.myModal .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    border: 1px solid #888;
+    max-width: 500px;
 }
- .myModal .close {
-	 color: #aaa;
-	 float: right;
-	 font-size: 28px;
-	 font-weight: bold;
+
+.myModal .modal-content .modal-name {
+    height: 35px;
+    padding: 5px 20px;
+    font-size: 20px;
+    text-align: center;
+    background-color: #007f74;
+    border-radius: 5px 5px 0 0;
+    color: white;
 }
- .myModal .close:hover, .myModal .close:focus {
-	 color: #000;
-	 text-decoration: none;
-	 cursor: pointer;
+
+.myModal .modal-content .form-edit {
+    padding: 0 20px;
+}
+
+.myModal .modal-content .form-edit #todoDescription {
+    resize: none;
+}
+
+.myModal .modal-content .form-edit span.to {
+    margin: 0 49px;
+}
+
+.myModal .modal-content .footer {
+    text-align: right;
+    padding: 0 20px 10px;
+}
+
+.myModal .modal-content .footer #myBtnSubmit {
+    background-color: #267f74;
+    border-color: #267f74;
+}
+
+.myModal .modal-content #mes-error {
+    padding: 0px 20px;
+}
+
+.myModal .modal-content #mes-error p {
+    color: red;
+    margin-bottom: 0;
+    font-size: 13px;
+    font-style: italic;
+}
+
+.myModal .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.myModal .close:hover,
+.myModal .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
 }

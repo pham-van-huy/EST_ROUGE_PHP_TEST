@@ -19,25 +19,40 @@ class TodoListController extends BaseController
 
     public function create($request)
     {
-        debug('create');
-    }
+        // $data = $request->getBody();
+        $data = file_get_contents('php://input');
+        $data = (array) json_decode($data);
 
-    public function store($request)
-    {
-        debug('store');
-    }
+        $mesErrors = $this->todoList->validate($data);
 
-    public function edit($request)
-    {
-        debug('edit');
+        if (count($mesErrors)) {
+            $this->returnJsonFail($mesErrors, 422);
+        } else {
+            $data['id'] = uniqid('', true);
+            $this->todoList->insertCustome($data);
+            $this->returnJsonSuccess($data);
+        }
     }
 
     public function update($request)
     {
-        debug('update');
+        $data = file_get_contents('php://input');
+        $data = (array) json_decode($data);
+        $id   = $data['id'];
+        unset($data['id']);
+        $mesErrors = $this->todoList->validate($data);
+
+        if (count($mesErrors)) {
+            $this->returnJsonFail($mesErrors, 422);
+        } else {
+            $this->todoList->update($data)->where(['id' => $id])->trigger();
+            $data['id'] = $id;
+            $this->returnJsonSuccess($data);
+        }
     }
 
-    function list($request) {
+    public function getList($request)
+    {
         $start  = $request->get('start');
         $end    = $request->get('end');
         $result = [];
@@ -46,7 +61,16 @@ class TodoListController extends BaseController
             ->whereBetweenTime('end', null, $end)
             ->get();
 
-        header('Content-Type: application/json');
-        echo json_encode(array_values($result));
+        $this->returnJsonSuccess(array_values($result));
+    }
+
+    public function destroy($request)
+    {
+        $data = file_get_contents('php://input');
+        $data = (array) json_decode($data);
+        $id   = $data['id'];
+        $this->todoList->delete()->where(['id' => $id])->trigger();
+
+        $this->returnJsonSuccess(['id' => $id]);
     }
 }

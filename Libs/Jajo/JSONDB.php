@@ -138,7 +138,7 @@ class JSONDB
         }
 
         if (!empty($this->content) && array_diff_key($values, (array) $this->content[0])) {
-            throw new Exception('Columns must match as of the first row');
+            throw new \Exception('Columns must match as of the first row');
         } else {
             $this->content[]    = (object) $values;
             $this->last_indexes = [(count($this->content) - 1)];
@@ -163,7 +163,7 @@ class JSONDB
                     if (!array_diff_key($this->update, $content)) {
                         $this->content[$i] = (object) array_merge($content, $this->update);
                     } else {
-                        throw new Exception('Update method has an off key');
+                        throw new \Exception('Update method has an off key');
                     }
 
                 } else {
@@ -179,7 +179,7 @@ class JSONDB
                 if (!array_diff_key($this->update, $content)) {
                     $this->content[$i] = (object) array_merge($content, $this->update);
                 } else {
-                    throw new Exception('Update method has an off key ');
+                    throw new \Exception('Update method has an off key ');
                 }
 
             }
