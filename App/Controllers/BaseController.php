@@ -16,7 +16,6 @@ class BaseController
 
     protected function returnJsonFail($error, $status = 405)
     {
-        http_response_code(422);
         header('Content-Type: application/json');
         echo json_encode(['status' => $status, 'error' => $error]);
     }

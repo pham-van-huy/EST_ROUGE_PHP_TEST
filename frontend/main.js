@@ -40,7 +40,7 @@ calendar.on({
             fetch('/api-destroy', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({id: id})
             }).then(function (res) {
@@ -207,7 +207,7 @@ $('#myBtnSubmit').onclick = function () {
     fetch(url, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
     }).then(function (res) {

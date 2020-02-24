@@ -26,11 +26,12 @@ class TodoListController extends BaseController
         $mesErrors = $this->todoList->validate($data);
 
         if (count($mesErrors)) {
-            $this->returnJsonFail($mesErrors, 422);
+            return $this->returnJsonFail($mesErrors, 422);
         } else {
             $data['id'] = uniqid('', true);
             $this->todoList->insertCustome($data);
-            $this->returnJsonSuccess($data);
+
+            return $this->returnJsonSuccess((array) $data);
         }
     }
 
@@ -38,16 +39,23 @@ class TodoListController extends BaseController
     {
         $data = file_get_contents('php://input');
         $data = (array) json_decode($data);
-        $id   = $data['id'];
+        $id   = isset($data['id']) ? $data['id'] : null;
         unset($data['id']);
         $mesErrors = $this->todoList->validate($data);
 
+        if (!$id) {
+            $this->returnJsonFail(['id' => 'Id is require in request'], 422);
+
+            return;
+        }
+
         if (count($mesErrors)) {
-            $this->returnJsonFail($mesErrors, 422);
+            return $this->returnJsonFail($mesErrors, 422);
         } else {
             $this->todoList->update($data)->where(['id' => $id])->trigger();
             $data['id'] = $id;
-            $this->returnJsonSuccess($data);
+
+            return $this->returnJsonSuccess($data);
         }
     }
 
@@ -61,16 +69,22 @@ class TodoListController extends BaseController
             ->whereBetweenTime('end', null, $end)
             ->get();
 
-        $this->returnJsonSuccess(array_values($result));
+        return $this->returnJsonSuccess(array_values($result));
     }
 
     public function destroy($request)
     {
         $data = file_get_contents('php://input');
         $data = (array) json_decode($data);
-        $id   = $data['id'];
-        $this->todoList->delete()->where(['id' => $id])->trigger();
+        $id   = isset($data['id']) ? $data['id'] : null;
 
-        $this->returnJsonSuccess(['id' => $id]);
+        if ($id) {
+            $this->todoList->delete()->where(['id' => $id])->trigger();
+
+            return $this->returnJsonSuccess(['id' => $id]);
+        } else {
+            return $this->returnJsonFail(['id' => 'Id is require in request'], 422);
+
+        }
     }
 }
